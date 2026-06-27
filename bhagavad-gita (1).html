@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bhagavad Gita — The Cosmic Dialogue | All 18 Chapters & 700 Shlokas</title>
+<meta name="description" content="A modern, interactive Bhagavad Gita learning platform. All 18 chapters and 700 shlokas with word-by-word meaning, deep explanation, and life applications for students, families, and professionals.">
+<meta property="og:title" content="Bhagavad Gita — The Cosmic Dialogue">
+<meta property="og:description" content="Learn the complete Bhagavad Gita with word-by-word meaning and practical life applications.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&family=Noto+Serif+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Book","name":"Bhagavad Gita","author":{"@type":"Person","name":"Vyasa"},"about":"Hindu scripture, philosophy, dharma","numberOfPages":700}
+</script>
+<style>
+:root{
+  --void:#070710; --cosmic:#0F172A; --indigo:#1a1635;
+  --gold:#FBBF24; --gold-soft:#fcd34d; --violet:#7C3AED; --krishna:#5b7cfa;
+  --text:#F4F2FF; --muted:#9a96c0; --line:rgba(255,255,255,.08);
+  --glass:rgba(255,255,255,.045); --glass-strong:rgba(255,255,255,.07);
+  --serif:'Fraunces',Georgia,serif; --body:'Inter',system-ui,sans-serif; --dev:'Noto Serif Devanagari',serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--void);color:var(--text);font-family:var(--body);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+#stars{position:fixed;inset:0;z-index:0;pointer-events:none}
+.app{position:relative;z-index:1}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+::selection{background:var(--gold);color:var(--void)}
+.gold{color:var(--gold)}
+.serif{font-family:var(--serif)}
+.dev{font-family:var(--dev);line-height:1.9}
+
+/* ---------- Nav ---------- */
+.nav{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:18px;
+  padding:14px clamp(16px,4vw,48px);backdrop-filter:blur(18px);
+  background:linear-gradient(to bottom,rgba(7,7,16,.92),rgba(7,7,16,.55));border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:11px;font-family:var(--serif);font-weight:600;font-size:1.05rem;letter-spacing:.3px}
+.brand .mark{width:30px;height:30px;border-radius:50%;background:radial-gradient(circle at 35% 30%,var(--gold),var(--violet) 80%);
+  box-shadow:0 0 18px rgba(251,191,36,.45);flex:none;position:relative}
+.brand .mark::after{content:"";position:absolute;inset:6px;border-radius:50%;border:1.5px solid rgba(7,7,16,.6)}
+.nav-links{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
+.nav-links button{padding:8px 14px;border-radius:9px;font-size:.86rem;color:var(--muted);transition:.2s;font-weight:500}
+.nav-links button:hover{color:var(--text);background:var(--glass)}
+.nav-links button.active{color:var(--gold);background:var(--glass-strong)}
+.menu-toggle{display:none;margin-left:auto;font-size:1.4rem;color:var(--gold)}
+
+/* ---------- Layout ---------- */
+.wrap{max-width:1160px;margin:0 auto;padding:0 clamp(16px,4vw,48px)}
+.view{display:none;animation:fade .5s ease}
+.view.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+section{padding:clamp(48px,7vw,90px) 0}
+.eyebrow{font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:14px}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.12}
+h2.title{font-size:clamp(1.9rem,4vw,2.8rem);margin-bottom:14px}
+.lead{color:var(--muted);font-size:1.05rem;max-width:62ch}
+
+/* ---------- Hero ---------- */
+.hero{min-height:88vh;display:flex;flex-direction:column;justify-content:center;position:relative;text-align:center;padding-top:40px}
+.hero .chakra{width:min(46vw,330px);aspect-ratio:1;margin:0 auto 30px;position:relative}
+.hero .chakra svg{width:100%;height:100%;animation:spin 60s linear infinite;filter:drop-shadow(0 0 30px rgba(124,58,237,.4))}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero h1{font-size:clamp(2.6rem,8vw,5.6rem);letter-spacing:-1px;font-weight:600}
+.hero h1 .sub{display:block;font-size:.34em;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-top:18px}
+.hero .sk{font-family:var(--dev);font-size:clamp(1.1rem,3vw,1.6rem);color:var(--gold-soft);margin:22px 0 6px;opacity:.92}
+.hero .quote{max-width:54ch;margin:26px auto 34px;font-family:var(--serif);font-style:italic;font-size:clamp(1.05rem,2.4vw,1.35rem);color:var(--text)}
+.hero .quote span{color:var(--muted);font-style:normal;font-size:.85em;display:block;margin-top:10px}
+.cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn{padding:13px 26px;border-radius:11px;font-weight:600;font-size:.95rem;transition:.25s;display:inline-flex;align-items:center;gap:8px}
+.btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold-soft));color:var(--void);box-shadow:0 8px 30px rgba(251,191,36,.28)}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 12px 38px rgba(251,191,36,.4)}
+.btn-ghost{border:1px solid var(--line);background:var(--glass);color:var(--text)}
+.btn-ghost:hover{background:var(--glass-strong);border-color:rgba(251,191,36,.3)}
+
+/* ---------- Glass cards ---------- */
+.glass{background:var(--glass);border:1px solid var(--line);border-radius:18px;backdrop-filter:blur(12px)}
+.grid{display:grid;gap:18px}
+.g3{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.g2{grid-template-columns:repeat(auto-fit,minmax(290px,1fr))}
+.feature{padding:26px}
+.feature h3{font-size:1.18rem;margin-bottom:9px}
+.feature .ico{font-size:1.6rem;margin-bottom:14px;display:block}
+.feature p{color:var(--muted);font-size:.94rem}
+
+/* ---------- Stat band ---------- */
+.stats{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:36px}
+.stat{padding:18px 26px;text-align:center;min-width:130px}
+.stat b{font-family:var(--serif);font-size:2rem;color:var(--gold);display:block}
+.stat small{color:var(--muted);font-size:.78rem;letter-spacing:.05em;text-transform:uppercase}
+
+/* ---------- Path ---------- */
+.path{display:grid;gap:14px;counter-reset:step}
+.path .step{display:flex;gap:18px;align-items:flex-start;padding:22px 24px}
+.path .step::before{counter-increment:step;content:counter(step,decimal-leading-zero);font-family:var(--serif);
+  font-size:1.4rem;color:var(--gold);flex:none;width:46px}
+.path .step h3{font-size:1.1rem;margin-bottom:4px}
+.path .step p{color:var(--muted);font-size:.92rem}
+
+/* ---------- Chapter grid ---------- */
+.chapters-grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
+.chap-card{padding:24px;cursor:pointer;transition:.28s;position:relative;overflow:hidden}
+.chap-card:hover{transform:translateY(-4px);border-color:rgba(251,191,36,.35)}
+.chap-card .num{font-family:var(--serif);font-size:3.2rem;line-height:1;color:rgba(251,191,36,.18);position:absolute;top:14px;right:18px}
+.chap-card .sk{font-family:var(--dev);color:var(--gold-soft);font-size:1.05rem;margin-bottom:2px}
+.chap-card h3{font-size:1.15rem;margin-bottom:8px;max-width:80%}
+.chap-card .en{color:var(--muted);font-size:.88rem;margin-bottom:14px}
+.chap-card .meta{display:flex;gap:14px;font-size:.78rem;color:var(--muted);border-top:1px solid var(--line);padding-top:12px}
+.chap-card .meta b{color:var(--gold)}
+.tag{display:inline-block;padding:4px 11px;border-radius:30px;background:var(--glass-strong);
+  font-size:.74rem;color:var(--muted);margin:3px 4px 0 0;border:1px solid var(--line)}
+
+/* ---------- Chapter detail ---------- */
+.back{display:inline-flex;align-items:center;gap:7px;color:var(--muted);font-size:.88rem;margin-bottom:24px;padding:7px 13px;border-radius:8px}
+.back:hover{color:var(--gold);background:var(--glass)}
+.chap-hero{padding:34px;margin-bottom:26px}
+.chap-hero .num{font-family:var(--serif);color:var(--gold);font-size:.85rem;letter-spacing:.2em;text-transform:uppercase}
+.chap-hero .sk{font-family:var(--dev);font-size:clamp(1.6rem,4vw,2.4rem);color:var(--gold-soft);margin:8px 0 4px}
+.chap-hero h2{font-size:clamp(1.4rem,3vw,2rem);margin-bottom:16px}
+.chap-hero p{color:var(--muted);max-width:70ch}
+.panel{padding:26px;margin-bottom:18px}
+.panel h3{font-size:1.05rem;color:var(--gold);margin-bottom:14px;letter-spacing:.02em}
+.panel ul{list-style:none;display:grid;gap:9px}
+.panel li{padding-left:22px;position:relative;color:var(--text);font-size:.95rem}
+.panel li::before{content:"◆";position:absolute;left:0;color:var(--violet);font-size:.7rem;top:4px}
+.verse-nav{display:grid;grid-template-columns:repeat(auto-fill,minmax(54px,1fr));gap:8px;margin-top:18px}
+.verse-nav button{aspect-ratio:1;border-radius:9px;background:var(--glass);border:1px solid var(--line);
+  font-size:.82rem;color:var(--muted);transition:.18s;font-weight:500}
+.verse-nav button:hover{border-color:var(--gold);color:var(--gold)}
+.verse-nav button.has{color:var(--text);background:var(--glass-strong)}
+.verse-nav button.has::after{content:"";position:absolute}
+
+/* ---------- Shloka ---------- */
+.shloka{max-width:780px;margin:0 auto}
+.sh-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:12px}
+.sh-head .id{font-family:var(--serif);font-size:1.5rem;color:var(--gold)}
+.sh-tools{display:flex;gap:8px}
+.sh-tools button{padding:8px 12px;border-radius:9px;background:var(--glass);border:1px solid var(--line);font-size:.8rem;color:var(--muted);transition:.2s}
+.sh-tools button:hover,.sh-tools button.on{color:var(--gold);border-color:rgba(251,191,36,.4)}
+.sanskrit-block{padding:30px;text-align:center;margin-bottom:18px;background:linear-gradient(160deg,rgba(124,58,237,.12),rgba(251,191,36,.05))}
+.sanskrit-block .dev{font-size:clamp(1.25rem,3.4vw,1.7rem);color:var(--gold-soft);white-space:pre-line}
+.sanskrit-block .audio{margin-top:20px;display:flex;gap:10px;justify-content:center;align-items:center;flex-wrap:wrap}
+.translit{padding:18px 22px;font-style:italic;color:var(--muted);white-space:pre-line;margin-bottom:18px;font-size:.96rem}
+.sec{padding:24px;margin-bottom:14px}
+.sec .label{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600;display:flex;align-items:center;gap:8px;margin-bottom:12px}
+.sec .label .n{width:22px;height:22px;border-radius:6px;background:var(--glass-strong);display:grid;place-items:center;font-size:.7rem;color:var(--muted)}
+.sec p{color:var(--text);font-size:.97rem}
+.words-grid{display:grid;gap:8px;grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
+.word{padding:11px 14px;background:var(--glass);border:1px solid var(--line);border-radius:10px;font-size:.9rem}
+.word b{color:var(--gold-soft);font-family:var(--dev)}
+.word span{color:var(--muted);display:block;font-size:.85rem}
+.life-grid{display:grid;gap:12px}
+.life{padding:18px 20px;border-left:3px solid var(--violet);background:var(--glass);border-radius:0 12px 12px 0}
+.life .lt{font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--krishna);font-weight:600;margin-bottom:6px}
+.life p{font-size:.93rem;color:var(--text)}
+.modern-box{padding:22px 24px;background:linear-gradient(135deg,rgba(91,124,250,.14),rgba(124,58,237,.08));border:1px solid rgba(124,58,237,.25)}
+.modern-box .lt{color:var(--gold)}
+.sh-foot{display:flex;justify-content:space-between;gap:12px;margin-top:24px}
+.sh-foot button{padding:12px 18px;border-radius:11px;background:var(--glass);border:1px solid var(--line);color:var(--text);font-weight:500;font-size:.9rem;transition:.2s}
+.sh-foot button:hover{border-color:var(--gold);color:var(--gold)}
+.sh-foot button:disabled{opacity:.3;cursor:default}
+.placeholder-note{padding:18px 22px;border:1px dashed rgba(251,191,36,.35);border-radius:12px;color:var(--muted);font-size:.9rem;background:rgba(251,191,36,.04)}
+
+/* ---------- Search ---------- */
+.search-bar{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap}
+.search-bar input{flex:1;min-width:220px;padding:15px 18px;border-radius:13px;background:var(--glass);
+  border:1px solid var(--line);color:var(--text);font-size:1rem;font-family:inherit}
+.search-bar input:focus{outline:none;border-color:rgba(251,191,36,.5)}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.filters button{padding:8px 15px;border-radius:30px;background:var(--glass);border:1px solid var(--line);
+  font-size:.82rem;color:var(--muted);transition:.2s}
+.filters button:hover,.filters button.on{color:var(--gold);border-color:rgba(251,191,36,.45);background:var(--glass-strong)}
+.result{padding:18px 22px;margin-bottom:12px;cursor:pointer;transition:.2s}
+.result:hover{transform:translateX(4px);border-color:rgba(251,191,36,.3)}
+.result .rid{color:var(--gold);font-family:var(--serif);font-size:.9rem;margin-bottom:5px}
+.result p{color:var(--muted);font-size:.92rem}
+
+/* ---------- AI Guru ---------- */
+.guru-fab{position:fixed;bottom:22px;right:22px;z-index:60;width:60px;height:60px;border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,var(--gold),var(--violet) 85%);box-shadow:0 10px 34px rgba(124,58,237,.5);
+  display:grid;place-items:center;font-size:1.5rem;transition:.25s}
+.guru-fab:hover{transform:scale(1.08)}
+.guru-modal{position:fixed;inset:0;z-index:70;background:rgba(7,7,16,.7);backdrop-filter:blur(6px);display:none;align-items:flex-end;justify-content:center}
+.guru-modal.open{display:flex}
+.guru-panel{width:min(560px,96vw);max-height:84vh;background:var(--cosmic);border:1px solid var(--line);
+  border-radius:22px 22px 0 0;display:flex;flex-direction:column;overflow:hidden;animation:up .35s ease}
+@media(min-width:600px){.guru-modal{align-items:center}.guru-panel{border-radius:22px}}
+@keyframes up{from{transform:translateY(40px);opacity:.5}to{transform:none;opacity:1}}
+.guru-head{padding:18px 22px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:12px}
+.guru-head .mark{width:36px;height:36px;border-radius:50%;background:radial-gradient(circle at 35% 30%,var(--gold),var(--violet))}
+.guru-head h3{font-size:1.1rem}.guru-head small{color:var(--muted);font-size:.78rem}
+.guru-head .x{margin-left:auto;font-size:1.4rem;color:var(--muted);padding:4px 10px}
+.guru-modes{display:flex;gap:6px;padding:12px 18px;flex-wrap:wrap;border-bottom:1px solid var(--line)}
+.guru-modes button{padding:6px 12px;border-radius:20px;font-size:.76rem;background:var(--glass);border:1px solid var(--line);color:var(--muted)}
+.guru-modes button.on{color:var(--gold);border-color:rgba(251,191,36,.4)}
+.guru-chat{flex:1;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:12px}
+.msg{padding:13px 16px;border-radius:14px;max-width:86%;font-size:.93rem;line-height:1.55}
+.msg.u{align-self:flex-end;background:linear-gradient(135deg,var(--violet),var(--krishna));color:#fff}
+.msg.a{align-self:flex-start;background:var(--glass-strong);border:1px solid var(--line)}
+.msg.a .who{font-size:.7rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px}
+.guru-input{display:flex;gap:8px;padding:14px 16px;border-top:1px solid var(--line)}
+.guru-input input{flex:1;padding:12px 15px;border-radius:12px;background:var(--glass);border:1px solid var(--line);color:var(--text);font-family:inherit}
+.guru-input input:focus{outline:none;border-color:rgba(251,191,36,.5)}
+.guru-input button{padding:0 18px;border-radius:12px;background:var(--gold);color:var(--void);font-weight:600}
+.chips{display:flex;gap:7px;flex-wrap:wrap;padding:0 18px 14px}
+.chips button{font-size:.78rem;padding:7px 12px;border-radius:18px;background:var(--glass);border:1px solid var(--line);color:var(--muted)}
+.chips button:hover{color:var(--gold)}
+
+/* ---------- Daily / tools ---------- */
+.daily-card{padding:34px;text-align:center;background:linear-gradient(160deg,rgba(124,58,237,.14),rgba(251,191,36,.06))}
+.daily-card .dev{font-size:1.4rem;color:var(--gold-soft);margin:14px 0}
+.toolbar-modes{display:inline-flex;gap:4px;padding:5px;border-radius:14px;background:var(--glass);border:1px solid var(--line);margin-bottom:30px}
+.toolbar-modes button{padding:9px 18px;border-radius:10px;font-size:.86rem;color:var(--muted);font-weight:500}
+.toolbar-modes button.on{background:var(--glass-strong);color:var(--gold)}
+.badge-grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}
+.badge{padding:22px 18px;text-align:center;transition:.25s}
+.badge.locked{opacity:.4}
+.badge .em{font-size:2.2rem;display:block;margin-bottom:10px}
+.badge h4{font-size:.95rem;font-family:var(--serif);margin-bottom:4px}
+.badge small{color:var(--muted);font-size:.76rem}
+.progress-ring{display:flex;align-items:center;gap:20px;padding:24px;flex-wrap:wrap}
+.progress-ring .bar{flex:1;min-width:200px;height:10px;border-radius:10px;background:var(--glass-strong);overflow:hidden}
+.progress-ring .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--violet),var(--gold));border-radius:10px;transition:width .6s}
+
+/* ---------- Knowledge graph ---------- */
+.kg{position:relative;height:340px;margin-top:10px}
+.kg svg{width:100%;height:100%}
+.kg .node{font-size:.8rem;font-weight:600;fill:var(--text)}
+.kg circle{cursor:pointer;transition:.2s}
+.kg circle:hover{filter:brightness(1.3)}
+
+/* ---------- Footer ---------- */
+footer{border-top:1px solid var(--line);padding:40px 0;text-align:center;color:var(--muted);font-size:.85rem}
+footer .disc{max-width:60ch;margin:14px auto 0;font-size:.8rem;opacity:.8}
+
+@media(max-width:760px){
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;
+    background:var(--cosmic);padding:14px;border-bottom:1px solid var(--line)}
+  .nav-links.open{display:flex}
+  .menu-toggle{display:block}
+  .sh-foot{flex-direction:column}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<canvas id="stars"></canvas>
+<div class="app">
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="brand"><span class="mark"></span>Bhagavad Gita</div>
+  <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+  <div class="nav-links">
+    <button data-view="home" class="active" onclick="go('home')">Home</button>
+    <button data-view="chapters" onclick="go('chapters')">Chapters</button>
+    <button data-view="search" onclick="go('search')">Search</button>
+    <button data-view="daily" onclick="go('daily')">Daily</button>
+    <button data-view="graph" onclick="go('graph')">Knowledge Map</button>
+    <button data-view="progress" onclick="go('progress')">Progress</button>
+  </div>
+</nav>
+
+<!-- HOME -->
+<div class="view active" id="view-home">
+  <div class="wrap">
+    <header class="hero">
+      <div class="chakra">
+        <svg viewBox="0 0 100 100" aria-hidden="true">
+          <defs><radialGradient id="g1"><stop offset="0" stop-color="#FBBF24"/><stop offset="1" stop-color="#7C3AED"/></radialGradient></defs>
+          <circle cx="50" cy="50" r="6" fill="url(#g1)"/>
+          <g stroke="#FBBF24" stroke-width="1" fill="none" opacity=".55">
+            <circle cx="50" cy="50" r="20"/><circle cx="50" cy="50" r="32"/><circle cx="50" cy="50" r="44"/>
+          </g>
+          <g stroke="#7C3AED" stroke-width="1.4" opacity=".8">
+            <!-- spokes -->
+            <line x1="50" y1="6" x2="50" y2="94"/><line x1="6" y1="50" x2="94" y2="50"/>
+            <line x1="19" y1="19" x2="81" y2="81"/><line x1="81" y1="19" x2="19" y2="81"/>
+            <line x1="50" y1="6" x2="68" y2="12" opacity="0"/>
+          </g>
+          <g fill="#FBBF24" opacity=".9">
+            <circle cx="50" cy="6" r="2"/><circle cx="50" cy="94" r="2"/><circle cx="6" cy="50" r="2"/><circle cx="94" cy="50" r="2"/>
+            <circle cx="19" cy="19" r="1.6"/><circle cx="81" cy="81" r="1.6"/><circle cx="81" cy="19" r="1.6"/><circle cx="19" cy="81" r="1.6"/>
+          </g>
+        </svg>
+      </div>
+      <h1>Bhagavad Gita<span class="sub">The Cosmic Dialogue</span></h1>
+      <div class="sk dev">यदा यदा हि धर्मस्य ग्लानिर्भवति भारत</div>
+      <p class="quote">“Whenever righteousness declines, I manifest myself.”
+        <span>— A song of duty, devotion and clear action, spoken between Krishna and Arjuna on a battlefield of the soul.</span></p>
+      <div class="cta-row">
+        <button class="btn btn-gold" onclick="go('chapters')">Begin the 18 Chapters →</button>
+        <button class="btn btn-ghost" onclick="go('daily')">Today's Shloka</button>
+      </div>
+      <div class="stats">
+        <div class="stat glass"><b>18</b><small>Chapters</small></div>
+        <div class="stat glass"><b>700</b><small>Shlokas</small></div>
+        <div class="stat glass"><b>5000+</b><small>Years of wisdom</small></div>
+      </div>
+    </header>
+
+    <section>
+      <div class="eyebrow">Orientation</div>
+      <h2 class="title">What is the Bhagavad Gita?</h2>
+      <p class="lead">The Bhagavad Gita ("Song of God") is a talk between a worried warrior named Arjuna and his wise friend Krishna, right before a big war. Arjuna is too scared and confused to fight. Krishna helps him — and that talk turns into a simple guide on how to live, how to handle hard times, and how to find peace.</p>
+      <div class="grid g3" style="margin-top:34px">
+        <div class="feature glass"><span class="ico">🌌</span><h3>Why it matters today</h3><p>Its themes — anxiety, duty, decision-making under pressure, finding meaning — are exactly the struggles of modern life.</p></div>
+        <div class="feature glass"><span class="ico">🧭</span><h3>A practical guide</h3><p>Not abstract theory. The Gita offers a usable framework for work, relationships, stress and self-mastery.</p></div>
+        <div class="feature glass"><span class="ico">🕊️</span><h3>Open to everyone</h3><p>Students, professionals, families, seekers and the simply curious — no prior knowledge required to begin.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="eyebrow">Benefits</div>
+      <h2 class="title">What studying the Gita gives you</h2>
+      <div class="grid g3" style="margin-top:30px">
+        <div class="feature glass"><span class="ico">🧠</span><h3>A calmer mind</h3><p>Tools for equanimity, focus and freedom from anxious overthinking.</p></div>
+        <div class="feature glass"><span class="ico">⚖️</span><h3>Clear decisions</h3><p>A way to act with conviction when duty and emotion pull in different directions.</p></div>
+        <div class="feature glass"><span class="ico">💼</span><h3>Better work & leadership</h3><p>Excellence through dedicated, selfless effort — and leading by example.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="eyebrow">Learning Path</div>
+      <h2 class="title">How to journey through the Gita</h2>
+      <div class="path" style="margin-top:30px">
+        <div class="step glass"><div><h3>Start with the despair (Ch. 1)</h3><p>Meet Arjuna's crisis — the human moment everyone recognises.</p></div></div>
+        <div class="step glass"><div><h3>Learn the core teaching (Ch. 2–6)</h3><p>The soul, selfless action, meditation and the steady mind.</p></div></div>
+        <div class="step glass"><div><h3>Deepen with devotion & vision (Ch. 7–12)</h3><p>The divine nature, the cosmic form, and the path of love.</p></div></div>
+        <div class="step glass"><div><h3>Refine character & liberation (Ch. 13–18)</h3><p>The gunas, virtue, faith, and the great synthesis of surrender.</p></div></div>
+      </div>
+    </section>
+
+    <section style="text-align:center">
+      <div class="eyebrow" style="margin-bottom:20px">Featured Teaching</div>
+      <div class="daily-card glass" style="max-width:640px;margin:0 auto">
+        <div class="rid gold serif" style="font-size:.95rem">Chapter 2 · Verse 47</div>
+        <div class="dev">कर्मण्येवाधिकारस्ते मा फलेषु कदाचन</div>
+        <p style="color:var(--text);font-style:italic;font-family:var(--serif)">“You have a right to your actions alone, never to the fruits of your actions.”</p>
+        <button class="btn btn-ghost" style="margin-top:18px" onclick="openShloka(2,47)">Study this verse →</button>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- CHAPTERS -->
+<div class="view" id="view-chapters">
+  <div class="wrap"><section>
+    <div class="eyebrow">The 18 Chapters</div>
+    <h2 class="title">Eighteen Yogas, One Song</h2>
+    <p class="lead">Each chapter is a "yoga" — a path or discipline. Tap any chapter to explore its summary, themes, lessons, and verses.</p>
+    <div class="chapters-grid" id="chaptersGrid" style="margin-top:36px"></div>
+  </section></div>
+</div>
+
+<!-- CHAPTER DETAIL -->
+<div class="view" id="view-chapter">
+  <div class="wrap"><section>
+    <button class="back" onclick="go('chapters')">← All chapters</button>
+    <div id="chapterDetail"></div>
+  </section></div>
+</div>
+
+<!-- SHLOKA -->
+<div class="view" id="view-shloka">
+  <div class="wrap"><section>
+    <button class="back" id="shlokaBack">← Back to chapter</button>
+    <div class="shloka" id="shlokaDetail"></div>
+  </section></div>
+</div>
+
+<!-- SEARCH -->
+<div class="view" id="view-search">
+  <div class="wrap"><section>
+    <div class="eyebrow">Search & Filter</div>
+    <h2 class="title">Find wisdom for what you're facing</h2>
+    <div class="search-bar" style="margin-top:26px">
+      <input id="searchInput" placeholder="Search chapters, themes, Sanskrit words…" oninput="runSearch()">
+    </div>
+    <div class="filters" id="filterBar"></div>
+    <div id="searchResults"></div>
+  </section></div>
+</div>
+
+<!-- DAILY -->
+<div class="view" id="view-daily">
+  <div class="wrap"><section>
+    <div class="eyebrow">Daily Practice</div>
+    <h2 class="title">Today's Shloka</h2>
+    <div class="daily-card glass" id="dailyCard" style="margin-top:26px"></div>
+    <div style="margin-top:40px">
+      <div class="eyebrow">Quote Generator</div>
+      <h2 class="title" style="font-size:1.5rem">Need inspiration?</h2>
+      <div class="glass" id="quoteBox" style="padding:28px;margin-top:18px;text-align:center"></div>
+      <button class="btn btn-gold" style="margin-top:18px" onclick="genQuote()">✦ Generate a quote</button>
+    </div>
+  </section></div>
+</div>
+
+<!-- KNOWLEDGE GRAPH -->
+<div class="view" id="view-graph">
+  <div class="wrap"><section>
+    <div class="eyebrow">Knowledge Map</div>
+    <h2 class="title">How the core ideas connect</h2>
+    <p class="lead">The Gita's concepts form a web. Action leads to discipline, discipline to mastery, mastery to detachment, and detachment back to peaceful action.</p>
+    <div class="glass kg" id="kg" style="margin-top:24px"></div>
+    <div class="grid g2" style="margin-top:24px">
+      <div class="panel glass"><h3>Desire → Destruction (Ch. 2.62–63)</h3>
+        <p style="color:var(--muted)">Dwelling on objects breeds attachment → attachment breeds desire → desire breeds anger → anger breeds delusion → delusion destroys reason. The Gita's most famous chain of cause and effect.</p></div>
+      <div class="panel glass"><h3>The path upward</h3>
+        <p style="color:var(--muted)">Selfless action → discipline → a steady mind → wisdom → detachment → freedom. Each rung supports the next.</p></div>
+    </div>
+  </section></div>
+</div>
+
+<!-- PROGRESS -->
+<div class="view" id="view-progress">
+  <div class="wrap"><section>
+    <div class="eyebrow">Your Journey</div>
+    <h2 class="title">Progress & Achievements</h2>
+    <div class="glass progress-ring" id="progressRing" style="margin-top:24px"></div>
+    <div style="margin-top:14px">
+      <div class="eyebrow" style="margin:30px 0 16px">Bookmarked verses</div>
+      <div id="bookmarkList"></div>
+    </div>
+    <div style="margin-top:30px">
+      <div class="eyebrow" style="margin-bottom:16px">Badges</div>
+      <div class="badge-grid" id="badgeGrid"></div>
+    </div>
+  </section></div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="brand" style="justify-content:center;margin-bottom:10px"><span class="mark"></span>Bhagavad Gita · The Cosmic Dialogue</div>
+    <p>A learning platform built with respect for the original teachings.</p>
+    <p class="disc">This is an educational interface. Translations and explanations are paraphrased for clarity and beginner accessibility; for scholarly or ritual use, please consult authoritative published editions and teachers.</p>
+  </div>
+</footer>
+
+</div><!-- /app -->
+
+<!-- AI GURU -->
+<button class="guru-fab" onclick="toggleGuru()" title="Ask the Gita Guru">🪔</button>
+<div class="guru-modal" id="guruModal">
+  <div class="guru-panel">
+    <div class="guru-head">
+      <span class="mark"></span>
+      <div><h3>Gita Guru</h3><small>Your study companion</small></div>
+      <button class="x" onclick="toggleGuru()">×</button>
+    </div>
+    <div class="guru-modes" id="guruModes">
+      <button class="on" data-mode="teacher" onclick="setGuruMode(this,'teacher')">As a teacher</button>
+      <button data-mode="child" onclick="setGuruMode(this,'child')">For a child</button>
+      <button data-mode="student" onclick="setGuruMode(this,'student')">For a student</button>
+      <button data-mode="professional" onclick="setGuruMode(this,'professional')">For a professional</button>
+    </div>
+    <div class="guru-chat" id="guruChat"></div>
+    <div class="chips" id="guruChips"></div>
+    <div class="guru-input">
+      <input id="guruInput" placeholder="Ask about any shloka or concept…" onkeydown="if(event.key==='Enter')sendGuru()">
+      <button onclick="sendGuru()">Ask</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ============================================================
+//  Bhagavad Gita — Data Layer
+//  18 chapters (complete metadata) + authored sample shlokas.
+//  Verse counts are the standard/authentic counts (total = 700).
+//  Shlokas use a structured schema so the remaining verses can
+//  be poured into the same shape without touching the UI.
+// ============================================================
+
+const CHAPTERS = [
+  { n:1,  sanskrit:"Arjuna Viṣāda Yoga",      english:"Arjuna's Sadness",            verses:47,
+    summary:"A big war is about to start. Arjuna, a great warrior, looks at the other side and sees his own family, teachers and friends. His heart sinks. He feels too sad and confused to fight, so he sits down and asks his friend Krishna what to do.",
+    relevance:"When we are scared or too attached, our mind freezes and we can't think clearly or make a choice.",
+    themes:["Sadness","Confusion","Attachment","Doing your job"],
+    lessons:["Confusion often comes before clear thinking","Not choosing is also a choice","Strong feelings make it hard to think straight"] },
+  { n:2,  sanskrit:"Sānkhya Yoga",            english:"The Chapter of Real Knowledge",                   verses:72,
+    summary:"Krishna starts teaching. He tells Arjuna that the body dies but the soul never dies. He says: do your job, but don't worry so much about what you will get from it. He also explains how to keep a calm, steady mind.",
+    relevance:"Stay calm no matter what happens. Know that you are more than just the good or bad things that happen to you. Work hard but don't get stuck on the results.",
+    themes:["The soul never dies","Doing your duty","Staying calm","Not chasing results"],
+    lessons:["The real you can't be destroyed","Do your work, let go of the result","A calm mind is real strength"] },
+  { n:3,  sanskrit:"Karma Yoga",              english:"The Chapter of Action",                      verses:43,
+    summary:"Krishna says nobody can just sit and do nothing — even staying alive needs action. So the smart way is to keep working, but do it to help others, not just for yourself. This is karma yoga.",
+    relevance:"We find meaning by doing good work and helping, not by being lazy or only thinking about ourselves.",
+    themes:["Helping through work","Service","Doing your part","Setting a good example"],
+    lessons:["You can't avoid doing things","Work done to help others sets you free","Leaders should show the way first"] },
+  { n:4,  sanskrit:"Jñāna Karma Sannyāsa Yoga", english:"Knowledge and Letting Go of Action", verses:42,
+    summary:"Krishna says this wisdom is very old and has been passed down for ages. He explains how knowing the real reason behind your actions makes your work pure and easy.",
+    relevance:"When you understand WHY you do something, even boring work turns into something that helps you grow.",
+    themes:["Old wisdom","Sacred knowledge","Wisdom makes work pure"],
+    lessons:["Knowing the truth clears away confusion","Do your work, but understand it deeply","Learn from wise people"] },
+  { n:5,  sanskrit:"Karma Sannyāsa Yoga",     english:"The Chapter of Letting Go",                verses:29,
+    summary:"Krishna explains that giving up doesn't mean quitting your work. Real giving up is letting go of attachment inside your heart. You can keep working in the world while staying free and peaceful inside.",
+    relevance:"You can be very busy in life and still stay calm and free inside.",
+    themes:["Letting go inside","Staying calm","Being free while working"],
+    lessons:["Let go of attachment, not your duty","Stay peaceful even when life is busy"] },
+  { n:6,  sanskrit:"Dhyāna Yoga",             english:"The Chapter of Meditation",                  verses:47,
+    summary:"Krishna explains how to meditate — how to sit, how to eat and sleep in balance, and how to train a jumpy, restless mind. He says the mind keeps running, but with practice you can calm it down.",
+    relevance:"Simple, real advice on how to focus and quiet a busy, distracted mind.",
+    themes:["Meditation","Self-control","The restless mind","Balance"],
+    lessons:["Your mind can be your best friend or worst enemy","Calm it slowly with practice","Don't do anything too much"] },
+  { n:7,  sanskrit:"Jñāna Vijñāna Yoga",      english:"Knowing God Fully",          verses:30,
+    summary:"Krishna explains his divine nature and says he is present in everything around us. He talks about the different kinds of people who turn to God.",
+    relevance:"Behind all the different things in life, there is one connecting thread.",
+    themes:["God is everywhere","Faith","One thread behind everything"],
+    lessons:["The divine is in everything","People come to God in many honest ways"] },
+  { n:8,  sanskrit:"Akṣara Brahma Yoga",      english:"The Chapter of the Never-Ending One",   verses:28,
+    summary:"Arjuna asks some big questions about God, the soul, and what happens when we die. Krishna answers, and says where your mind is focused at the end really matters.",
+    relevance:"Live knowing the difference between what lasts forever and what fades away.",
+    themes:["The never-ending one","Remembering God","Focus at the end"],
+    lessons:["You move toward whatever you focus on","A steady mind shapes your future"] },
+  { n:9,  sanskrit:"Rāja Vidyā Rāja Guhya Yoga", english:"The Best and Most Secret Knowledge", verses:34,
+    summary:"Krishna shares the most special secret: simple love and devotion. God is open to everyone, no matter who you are, as long as your love is real.",
+    relevance:"The deepest truths are open to anyone with a sincere heart, not just special people.",
+    themes:["Devotion","Open to all","Surrender","Grace"],
+    lessons:["A true heart matters more than your status","Love is the easiest path"] },
+  { n:10, sanskrit:"Vibhūti Yoga",            english:"God's Wonderful Powers",              verses:42,
+    summary:"Krishna says that anywhere you see something amazing, beautiful, or powerful — that is a little spark of God showing up in the world.",
+    relevance:"Learn to notice the amazing and the sacred even in ordinary, everyday life.",
+    themes:["God showing up everywhere","Excellence","Wonder"],
+    lessons:["Anything excellent is a spark of God","Make room for wonder"] },
+  { n:11, sanskrit:"Viśvarūpa Darśana Yoga",  english:"Seeing God's Huge Cosmic Form", verses:55,
+    summary:"Arjuna asks to see Krishna's true form. Krishna shows his giant, endless, universe-sized form. It is so huge and powerful that Arjuna gets scared and asks Krishna to please go back to his normal, gentle look.",
+    relevance:"When you see something far bigger than yourself, your small worries suddenly feel small too.",
+    themes:["The cosmic form","Awe","Surrender","Time"],
+    lessons:["Seeing something huge melts your ego","The endless is humbling"] },
+  { n:12, sanskrit:"Bhakti Yoga",             english:"The Chapter of Love and Devotion",                    verses:20,
+    summary:"Krishna explains the path of loving God. He describes the kind of person God loves most: someone kind, calm, content, and not full of hate or ego.",
+    relevance:"The good qualities — kindness, being content, staying calm — that make life peaceful and make people love you.",
+    themes:["Devotion","Kindness","Being content","Staying calm"],
+    lessons:["Love is the most direct path","Your character matters more than rituals"] },
+  { n:13, sanskrit:"Kṣetra Kṣetrajña Vibhāga Yoga", english:"The Body and the One Who Watches It", verses:34,
+    summary:"Krishna explains the difference between your 'body' (which is like a field) and the 'you' who watches and knows everything happening (your awareness). He lists what real wisdom looks like.",
+    relevance:"Learn to see the real you as separate from your body, your job, and your situation.",
+    themes:["Body vs. the real you","Awareness","Real wisdom","Humility"],
+    lessons:["You are the one watching, not just the body","Being humble is wise"] },
+  { n:14, sanskrit:"Guṇatraya Vibhāga Yoga",  english:"The Three Forces Inside Us",         verses:27,
+    summary:"Krishna explains three forces in everyone: goodness and calm (sattva), restlessness and desire (rajas), and laziness and dullness (tamas). He explains how to rise above all three.",
+    relevance:"Notice which mood is running you right now — calm, restless, or lazy — and learn to rise above it.",
+    themes:["The three forces","Knowing yourself","Rising above"],
+    lessons:["Notice which force is driving you","Choose calmness over restlessness and laziness"] },
+  { n:15, sanskrit:"Puruṣottama Yoga",        english:"The Highest Being",          verses:20,
+    summary:"Using the picture of an upside-down tree, Krishna explains how the world works, what the soul is, and the highest being who is beyond everything that changes.",
+    relevance:"Understand what truly lasts, and stop clinging to things that only seem permanent.",
+    themes:["The world-tree","Letting go","The highest self"],
+    lessons:["Cut attachment like cutting a tree","Look for what truly lasts"] },
+  { n:16, sanskrit:"Daivāsura Sampad Vibhāga Yoga", english:"Good Nature vs Bad Nature", verses:24,
+    summary:"Krishna compares good qualities (brave, kind, honest) with bad qualities (proud, angry, greedy), and shows where each one leads in life.",
+    relevance:"A clear mirror to check your own behavior and become a better person.",
+    themes:["Good vs bad qualities","Character","Checking yourself"],
+    lessons:["Build good qualities on purpose","Ego and greed bring suffering"] },
+  { n:17, sanskrit:"Śraddhātraya Vibhāga Yoga", english:"Three Kinds of Faith", verses:28,
+    summary:"Krishna explains how your faith, the food you eat, what you give to others, and your self-discipline all come in three types — and how they quietly shape the kind of person you become.",
+    relevance:"Your daily habits, food, giving, and discipline slowly shape who you turn into.",
+    themes:["Faith","Habits","Discipline","Giving"],
+    lessons:["Your habits show your true nature","Why you do something matters"] },
+  { n:18, sanskrit:"Mokṣa Sannyāsa Yoga",     english:"Freedom and Letting Go",  verses:78,
+    summary:"The longest and last chapter sums up the whole Gita: do your real work, do it with love, and let go. By the end, Arjuna's confusion is gone. He stands up, clear and ready to act.",
+    relevance:"A full guide for living: do your own real work, with love, and let go of the rest.",
+    themes:["Freedom","Surrender","Your real work","Putting it all together"],
+    lessons:["Do your own work, not someone else's","Letting go brings freedom","Take action — wisdom brings clarity"] },
+];
+
+// Verify total
+const TOTAL_VERSES = CHAPTERS.reduce((s,c)=>s+c.verses,0); // 700
+
+// ----- Authored sample shlokas (full 11-section schema, simple English) -----
+const SHLOKAS = {
+  "1.1": {
+    sanskrit:"धृतराष्ट्र उवाच ।\nधर्मक्षेत्रे कुरुक्षेत्रे समवेता युयुत्सवः ।\nमामकाः पाण्डवाश्चैव किमकुर्वत सञ्जय ॥",
+    translit:"dhṛtarāṣṭra uvāca\ndharma-kṣetre kuru-kṣetre samavetā yuyutsavaḥ\nmāmakāḥ pāṇḍavāś caiva kim akurvata sañjaya",
+    words:[["dharma-kṣetre","in the field of right and wrong"],["kuru-kṣetre","at the place called Kurukshetra"],["samavetāḥ","gathered together"],["yuyutsavaḥ","wanting to fight"],["māmakāḥ","my sons"],["pāṇḍavāḥ","the sons of Pandu"],["ca eva","and also"],["kim akurvata","what did they do"],["sañjaya","O Sanjaya"]],
+    translation:"The blind king asks: Sanjaya, my sons and Pandu's sons have all gathered to fight at Kurukshetra. Tell me, what did they do?",
+    explanation:"The blind old king can't see the battlefield, so he asks his helper to tell him what's happening. Notice he says 'MY sons' — he loves his own children so much that he can't be fair. His blind eyes are a hint that his heart is blind too. The place is called a 'field of right and wrong,' so this fight is also a test of doing the right thing.",
+    context:"The war is about to begin. The blind king can't go to the battlefield, so his helper Sanjaya (who has a special gift to see far away) tells him everything. The king is worried and clearly hoping his own side wins.",
+    personal:"See how he says 'my sons'? We all do this — 'my idea,' 'my side,' 'my way' — and it quietly makes us unfair without us noticing. The first step to being fair is catching yourself doing this.",
+    family:"The king loved his kids so much that he never corrected them, and it destroyed the whole family. Loving your family doesn't mean letting them do whatever they want. Real love also means guiding them to do what's right.",
+    social:"Sticking to 'my group vs. your group' blinds us to what's fair. Ask yourself: do I judge things by what's actually right, or just by which side did it?",
+    professional:"A boss who always favors 'their people' over honest, fair work loses everyone's trust. Judging work by how good it is — not by who did it — keeps a team healthy.",
+    modern:"A manager keeps promoting their friend even though that friend does bad work, just because they're 'one of us.' The whole team gets upset and stops trying. Just like the blind king, the boss can't see clearly because of attachment."
+  },
+  "2.47": {
+    sanskrit:"कर्मण्येवाधिकारस्ते मा फलेषु कदाचन ।\nमा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि ॥",
+    translit:"karmaṇy evādhikāras te mā phaleṣu kadācana\nmā karma-phala-hetur bhūr mā te saṅgo 'stv akarmaṇi",
+    words:[["karmaṇi eva","only in your work / action"],["adhikāraḥ","your right"],["te","your"],["mā phaleṣu","not in the results"],["kadācana","ever"],["mā ... hetuḥ bhūḥ","don't do it just for the result"],["karma-phala","the fruit of action"],["mā te saṅgaḥ","don't get attached"],["akarmaṇi","to doing nothing"]],
+    translation:"You can control your work, but you can't control what you get from it. So don't work only for the reward — but also don't stop working.",
+    explanation:"This is the most famous line in the whole Gita. It splits life into two parts: the part you control (how hard you try and how you behave) and the part you don't control (what you actually get). Krishna isn't saying 'don't care about results.' He's saying don't let worry about results eat you up. Funny thing — when you stop stressing about the result, you usually do better work.",
+    context:"Krishna is teaching Arjuna how to act. Arjuna is frozen partly because he keeps imagining the terrible results of the war. Krishna pulls his focus away from the scary 'what if' and back to just doing the right thing now.",
+    personal:"Worry and overthinking usually come from gripping the result too hard: 'What if I fail?' Put your energy into the part you control — your effort — and loosen your grip on the part you don't. Peace lives right there.",
+    family:"Parents who tie their happiness to a kid's marks or job create huge pressure and fights. Give your love and guidance fully — but don't demand one exact result. Let your child breathe.",
+    social:"Help people because it's the right thing, not to get a thank-you or praise. Help given with no strings attached builds real, lasting friendships.",
+    professional:"Do great work because it's your craft — not only to chase the promotion. The calm that comes from this actually makes your work better than stressing ever could.",
+    modern:"A student studies really hard but then panics about the result and can't sleep. This verse says: prepare well (that's your job), then let go of the result (that's not in your hands). That calm actually helps you score better."
+  },
+  "2.20": {
+    sanskrit:"न जायते म्रियते वा कदाचि-\nन्नायं भूत्वा भविता वा न भूयः ।\nअजो नित्यः शाश्वतोऽयं पुराणो\nन हन्यते हन्यमाने शरीरे ॥",
+    translit:"na jāyate mriyate vā kadācin\nnāyaṁ bhūtvā bhavitā vā na bhūyaḥ\najo nityaḥ śāśvato 'yaṁ purāṇo\nna hanyate hanyamāne śarīre",
+    words:[["na jāyate","is never born"],["mriyate","never dies"],["vā kadācit","at any time"],["ajaḥ","never born"],["nityaḥ","always there"],["śāśvataḥ","never-ending"],["purāṇaḥ","very ancient"],["na hanyate","is not killed"],["hanyamāne śarīre","even when the body is killed"]],
+    translation:"The soul is never born and never dies. It was always here and always will be. Even when the body dies, the soul is not killed.",
+    explanation:"Krishna goes straight to Arjuna's biggest fear — death. He says: the body and the soul are two different things. The body ends, but the real you (the soul) never ends. This changes how we look at loss in the deepest possible way.",
+    context:"Arjuna is sad about the deaths he is about to cause in his own family. Krishna lifts his eyes from the body that dies to the soul that never dies, to ease his sadness and help him see clearly.",
+    personal:"Fear of losing things — our looks, our status, our life — causes a lot of our worry. When you feel connected to the part of you that never changes, a deep calm comes.",
+    family:"Crying when we lose someone we love is normal and okay. But this verse gives comfort: the real person we love is not as fragile as their body. Many people find peace in this idea when they're grieving.",
+    social:"A world that only cares about money and looks misses the deeper worth of each person. Seeing something lasting in others helps us treat them with respect.",
+    professional:"Losing a job or failing can feel like 'the end.' But your skills, your character, and who you are inside don't disappear. When your identity is bigger than one job title, no setback can break you.",
+    modern:"Someone loses a job they built their whole life around and feels like they've 'died.' This verse reminds them: the job ended, but YOU didn't. Your skills and your worth were never just that job."
+  },
+  "6.5": {
+    sanskrit:"उद्धरेदात्मनात्मानं नात्मानमवसादयेत् ।\nआत्मैव ह्यात्मनो बन्धुरात्मैव रिपुरात्मनः ॥",
+    translit:"uddhared ātmanātmānaṁ nātmānam avasādayet\nātmaiva hy ātmano bandhur ātmaiva ripur ātmanaḥ",
+    words:[["uddharet","lift yourself up"],["ātmanā","by your own self"],["ātmānam","yourself"],["na avasādayet","don't pull yourself down"],["ātmā eva","your own self"],["bandhuḥ","friend"],["ātmā eva ripuḥ","your own self is the enemy"]],
+    translation:"Lift yourself up by your own effort. Don't drag yourself down. You can be your own best friend, or your own worst enemy.",
+    explanation:"Krishna puts it on you. The same mind that can lift you up can also pull you down. Whether you become your own best friend or your own worst enemy depends on how you train and talk to yourself.",
+    context:"This is in the chapter about meditation. Before teaching the 'how,' Krishna teaches the main idea first: getting better is your own responsibility.",
+    personal:"Putting yourself down ('I'm useless') is your mind being your enemy. Cheering yourself on and staying disciplined is your mind being your friend. You get more say in which one shows up than it feels like.",
+    family:"Before trying to fix everyone else at home, calm yourself first. One calm person makes the whole house calmer. One upset person spreads the upset around.",
+    social:"Communities get better when people take charge of their own actions instead of only blaming others or bad luck.",
+    professional:"Pushing yourself lasts longer than being pushed by a boss. The people who grow the most are the ones who hold themselves responsible instead of waiting to be told.",
+    modern:"Two people fail the same test. One keeps saying 'I'm so stupid' and gives up (enemy). The other says 'okay, lesson learned' and tries again (friend). Same failure — your own mind decides what happens next."
+  },
+  "12.13": {
+    sanskrit:"अद्वेष्टा सर्वभूतानां मैत्रः करुण एव च ।\nनिर्ममो निरहङ्कारः समदुःखसुखः क्षमी ॥",
+    translit:"adveṣṭā sarva-bhūtānāṁ maitraḥ karuṇa eva ca\nnirmamo nirahaṅkāraḥ sama-duḥkha-sukhaḥ kṣamī",
+    words:[["adveṣṭā","not hating"],["sarva-bhūtānām","anyone, any living thing"],["maitraḥ","friendly"],["karuṇaḥ","kind"],["nirmamaḥ","not greedy / not 'mine mine'"],["nirahaṅkāraḥ","no ego"],["sama-duḥkha-sukhaḥ","same in pain and joy"],["kṣamī","forgiving"]],
+    translation:"The person who hates no one, who is friendly and kind, who isn't greedy or full of ego, who stays the same in good times and bad, and who forgives —",
+    explanation:"Krishna describes the kind of person God loves most. Notice: these aren't magic powers. They're simple, everyday good qualities — being kind, humble, calm, and forgiving. Real spirituality here is just about how you treat people and how you handle yourself.",
+    context:"In the chapter about love and devotion, Arjuna asks who the best kind of person is. Krishna doesn't list special rituals — he lists good character. That makes this path open to everyone.",
+    personal:"Letting go of grudges (forgiving) and not being full of yourself (no ego) is one of the surest ways to feel peaceful inside. And these are habits you can practice, not things you're just born with.",
+    family:"A happy home runs on exactly these things: being friendly, kind, forgiving, and not controlling. They stop most family fights before they even start.",
+    social:"Being kind and friendly to everyone — not just your own group — is what makes a good society. Forgiving people stops fights from going on forever.",
+    professional:"The coworkers everyone respects are the calm ones (same in good times and bad), the humble ones, and the ones who forgive mistakes. These build trust way more than ego ever does.",
+    modern:"A team leader stays calm whether the month was amazing or terrible, shares the credit (no ego), and forgives an honest mistake. People give their best work to leaders like this — that's this verse in real life."
+  },
+};
+
+</script>
+<script>
+/* ============== STATE (in-memory; no browser storage) ============== */
+const S = { learnMode:'beginner', guruMode:'teacher', filter:null,
+  read:new Set(), bookmarks:new Set(), notes:{}, curChap:null };
+
+/* ============== STARFIELD ============== */
+(function(){
+  const c=document.getElementById('stars'),x=c.getContext('2d');let w,h,st;
+  function size(){w=c.width=innerWidth;h=c.height=innerHeight;
+    st=Array.from({length:Math.min(150,Math.floor(w*h/9000))},()=>({x:Math.random()*w,y:Math.random()*h,r:Math.random()*1.3,s:Math.random()*.4+.1,p:Math.random()*Math.PI*2}));}
+  size();addEventListener('resize',size);
+  const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  function draw(){x.clearRect(0,0,w,h);for(const s of st){s.p+=0.02;const a=.4+Math.sin(s.p)*.4;
+    x.beginPath();x.arc(s.x,s.y,s.r,0,7);x.fillStyle=`rgba(251,191,36,${a*.5})`;x.fill();
+    if(!reduce){s.y+=s.s;if(s.y>h)s.y=0;}}requestAnimationFrame(draw);}
+  draw();
+})();
+
+/* ============== NAV ============== */
+function go(v){
+  document.querySelectorAll('.view').forEach(e=>e.classList.remove('active'));
+  document.getElementById('view-'+v).classList.add('active');
+  document.querySelectorAll('.nav-links button').forEach(b=>b.classList.toggle('active',b.dataset.view===v));
+  document.querySelector('.nav-links').classList.remove('open');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+/* ============== CHAPTERS ============== */
+function renderChapters(){
+  document.getElementById('chaptersGrid').innerHTML = CHAPTERS.map(c=>`
+    <div class="chap-card glass" onclick="openChapter(${c.n})">
+      <div class="num">${c.n}</div>
+      <div class="sk dev">${c.sanskrit}</div>
+      <h3>${c.english}</h3>
+      <div class="en">${c.summary.slice(0,84)}…</div>
+      <div>${c.themes.slice(0,3).map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+      <div class="meta"><span><b>${c.verses}</b> verses</span><span>Chapter ${c.n} of 18</span></div>
+    </div>`).join('');
+}
+
+function openChapter(n){
+  const c=CHAPTERS.find(x=>x.n===n);S.curChap=n;
+  document.getElementById('chapterDetail').innerHTML=`
+    <div class="chap-hero glass">
+      <div class="num">Chapter ${c.n} · ${c.verses} verses</div>
+      <div class="sk dev">${c.sanskrit}</div>
+      <h2>${c.english}</h2>
+      <p>${c.summary}</p>
+    </div>
+    <div class="grid g2">
+      <div class="panel glass"><h3>✦ Life Relevance</h3><p style="color:var(--muted)">${c.relevance}</p></div>
+      <div class="panel glass"><h3>✦ Main Themes</h3><div>${c.themes.map(t=>`<span class="tag">${t}</span>`).join('')}</div></div>
+    </div>
+    <div class="panel glass"><h3>✦ Key Lessons</h3><ul>${c.lessons.map(l=>`<li>${l}</li>`).join('')}</ul></div>
+    <div class="panel glass"><h3>✦ Explore the verses (1–${c.verses})</h3>
+      <p style="color:var(--muted);font-size:.9rem">Verses with full study notes are highlighted in white. Tap any number to open it.</p>
+      <div class="verse-nav">${Array.from({length:c.verses},(_,i)=>{const v=i+1;const has=SHLOKAS[`${n}.${v}`];
+        return `<button class="${has?'has':''}" onclick="openShloka(${n},${v})">${v}</button>`;}).join('')}</div>
+    </div>`;
+  go('chapter');
+}
+
+/* ============== SHLOKA ============== */
+const LIFE=[["personal","Personal Life","🧘"],["family","Family Life","🏠"],["social","Social Life","🤝"],["professional","Professional Life","💼"]];
+function openShloka(n,v){
+  const key=`${n}.${v}`, sh=SHLOKAS[key], c=CHAPTERS.find(x=>x.n===n);
+  S.read.add(key);
+  document.getElementById('shlokaBack').onclick=()=>openChapter(n);
+  const el=document.getElementById('shlokaDetail');
+  if(!sh){
+    el.innerHTML=`
+      <div class="sh-head"><div class="id">${n}.${v}</div></div>
+      <div class="placeholder-note">📿 <b>Chapter ${n}, Verse ${v}</b> — ${c.english}.<br><br>
+        The full simple notes for this verse (the Sanskrit, the easy meaning, word by word, and how it helps in real life)
+        are coming soon. A few verses are fully written in easy English already — try <b>2.47</b>, <b>2.20</b>, <b>6.5</b>, <b>1.1</b> or <b>12.13</b> to see them.</div>
+      <div class="sh-foot">
+        <button ${v<=1?'disabled':''} onclick="openShloka(${n},${v-1})">← Verse ${v-1}</button>
+        <button ${v>=c.verses?'disabled':''} onclick="openShloka(${n},${v+1})">Verse ${v+1} →</button>
+      </div>`;
+    go('shloka');return;
+  }
+  const bm=S.bookmarks.has(key);
+  el.innerHTML=`
+    <div class="sh-head">
+      <div class="id">${n}.${v} <span style="font-size:.6em;color:var(--muted)">${c.english}</span></div>
+      <div class="sh-tools">
+        <button class="${bm?'on':''}" id="bmBtn" onclick="toggleBm('${key}')">${bm?'★ Saved':'☆ Save'}</button>
+        <button onclick="askGuruAbout('${key}')">🪔 Ask Guru</button>
+      </div>
+    </div>
+    <div class="sanskrit-block glass"><div class="dev">${sh.sanskrit}</div>
+      <div class="audio">
+        <button class="btn btn-ghost" onclick="chant(this,\`${sh.translit.replace(/`/g,'')}\`)">▶ Chant</button>
+        <button class="btn btn-ghost" onclick="chant(this,\`${sh.translit.replace(/`/g,'')}\`,true)">🐢 Slow</button>
+      </div>
+    </div>
+    <div class="translit glass">${sh.translit}</div>
+
+    ${sec(1,'Word by Word','📖',`<div class="words-grid">${sh.words.map(w=>`<div class="word"><b>${w[0]}</b><span>${w[1]}</span></div>`).join('')}</div>`)}
+    ${sec(2,'Translation','🌿',`<p style="font-size:1.05rem;font-family:var(--serif)">${sh.translation}</p>`)}
+    ${sec(3,'Deep Explanation','🔮',`<p>${sh.explanation}</p>`)}
+    ${sec(4,'Context','📜',`<p>${sh.context}</p>`)}
+
+    <div class="sec glass">
+      <div class="label"><span class="n">5</span>Life Applications</div>
+      <div class="life-grid">
+        ${LIFE.map(([k,t,e])=>`<div class="life"><div class="lt">${e} ${t}</div><p>${sh[k]}</p></div>`).join('')}
+      </div>
+    </div>
+
+    <div class="modern-box glass" style="margin-bottom:14px">
+      <div class="lt" style="font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;margin-bottom:8px">🌍 A Modern Example</div>
+      <p>${sh.modern}</p>
+    </div>
+
+    <div class="sec glass">
+      <div class="label"><span class="n">✎</span>Your Notes</div>
+      <textarea id="noteArea" placeholder="Write your reflection on this verse…" oninput="saveNote('${key}',this.value)"
+        style="width:100%;min-height:80px;background:var(--glass);border:1px solid var(--line);border-radius:10px;color:var(--text);padding:12px;font-family:inherit;resize:vertical">${S.notes[key]||''}</textarea>
+    </div>
+
+    <div class="sh-foot">
+      <button ${v<=1?'disabled':''} onclick="openShloka(${n},${v-1})">← Verse ${v-1}</button>
+      <button ${v>=c.verses?'disabled':''} onclick="openShloka(${n},${v+1})">Verse ${v+1} →</button>
+    </div>`;
+  go('shloka');
+}
+function sec(n,label,emoji,body){
+  return `<div class="sec glass"><div class="label"><span class="n">${n}</span>${emoji} ${label}</div>${body}</div>`;}
+
+function toggleBm(key){
+  if(S.bookmarks.has(key))S.bookmarks.delete(key);else S.bookmarks.add(key);
+  const b=document.getElementById('bmBtn');const on=S.bookmarks.has(key);
+  if(b){b.textContent=on?'★ Saved':'☆ Save';b.classList.toggle('on',on);}
+}
+function saveNote(key,val){S.notes[key]=val;}
+
+/* ============== AUDIO (Web Speech, no external file) ============== */
+let utter=null;
+function chant(btn,text,slow){
+  if(!('speechSynthesis'in window)){btn.textContent='Audio not supported';return;}
+  speechSynthesis.cancel();
+  utter=new SpeechSynthesisUtterance(text.replace(/\n/g,', '));
+  utter.rate=slow?0.55:0.85;utter.pitch=0.9;
+  const old=btn.textContent;btn.textContent='⏸ Playing…';
+  utter.onend=()=>btn.textContent=old;
+  speechSynthesis.speak(utter);
+}
+
+/* ============== SEARCH ============== */
+const FILTERS=["Anxiety","Success","Discipline","Karma","Meditation","Leadership","Relationships","Family","Business","Happiness","Detachment","Devotion"];
+function renderFilters(){
+  document.getElementById('filterBar').innerHTML=FILTERS.map(f=>
+    `<button onclick="setFilter('${f}')" id="f-${f}">${f}</button>`).join('');
+}
+function setFilter(f){
+  S.filter=(S.filter===f)?null:f;
+  document.querySelectorAll('#filterBar button').forEach(b=>b.classList.toggle('on',b.id===`f-${S.filter}`));
+  runSearch();
+}
+function runSearch(){
+  const q=(document.getElementById('searchInput').value||'').toLowerCase().trim();
+  const SYN={anxiety:["anxiety","worry","worri","stress","scared","fear","panic","nervous"],
+    success:["success","win","achiev","result","goal","grow"],
+    discipline:["disciplin","control","habit","practice","steady","focus"],
+    karma:["karma","action","work","duty","effort"],
+    meditation:["meditat","calm","mind","focus","quiet","still"],
+    leadership:["leader","boss","manager","example","team"],
+    relationships:["relation","family","friend","love","trust"],
+    family:["family","parent","child","home","kids"],
+    business:["business","work","job","career","professional","money"],
+    happiness:["happy","happiness","peace","content","joy","calm"],
+    detachment:["detach","let go","letting go","attach","release"],
+    devotion:["devotion","love","faith","god","kind"]};
+  const terms=f=>SYN[f.toLowerCase()]||[f.toLowerCase()];
+  const hit=(hay,f)=>!f||terms(f).some(t=>hay.includes(t));
+  const out=[];
+  CHAPTERS.forEach(c=>{
+    const hay=(c.sanskrit+' '+c.english+' '+c.summary+' '+c.relevance+' '+c.themes.join(' ')+' '+c.lessons.join(' ')).toLowerCase();
+    const fOk=hit(hay,S.filter);
+    const qOk=!q||hay.includes(q);
+    if(fOk&&qOk)out.push({type:'chapter',c});
+  });
+  Object.entries(SHLOKAS).forEach(([k,sh])=>{
+    const hay=(sh.translation+' '+sh.explanation+' '+sh.personal+' '+sh.family+' '+sh.social+' '+sh.professional+' '+sh.modern+' '+sh.translit).toLowerCase();
+    const fOk=hit(hay,S.filter);
+    const qOk=!q||hay.includes(q);
+    if((q||S.filter)&&fOk&&qOk){const[n,v]=k.split('.');out.push({type:'shloka',k,n:+n,v:+v,sh});}
+  });
+  const r=document.getElementById('searchResults');
+  if(!q&&!S.filter){r.innerHTML=`<p style="color:var(--muted)">Type a word or pick a life situation above to find relevant teachings.</p>`;return;}
+  if(!out.length){r.innerHTML=`<div class="placeholder-note">No matches found. Try a broader word like "mind", "duty" or "fear".</div>`;return;}
+  r.innerHTML=out.map(o=>o.type==='chapter'
+    ? `<div class="result glass" onclick="openChapter(${o.c.n})"><div class="rid">Chapter ${o.c.n} · ${o.c.sanskrit}</div><p>${o.c.english} — ${o.c.relevance}</p></div>`
+    : `<div class="result glass" onclick="openShloka(${o.n},${o.v})"><div class="rid">Verse ${o.k}</div><p>${o.sh.translation.slice(0,120)}…</p></div>`
+  ).join('');
+}
+
+/* ============== DAILY + QUOTE ============== */
+function renderDaily(){
+  const keys=Object.keys(SHLOKAS);
+  const day=Math.floor(Date.now()/8.64e7);
+  const key=keys[day%keys.length];const[n,v]=key.split('.');const sh=SHLOKAS[key];
+  document.getElementById('dailyCard').innerHTML=`
+    <div class="rid gold serif" style="font-size:.95rem">Chapter ${n} · Verse ${v}</div>
+    <div class="dev">${sh.sanskrit.split('\n')[1]||sh.sanskrit}</div>
+    <p style="font-style:italic;font-family:var(--serif);color:var(--text)">“${sh.translation}”</p>
+    <button class="btn btn-gold" style="margin-top:18px" onclick="openShloka(${n},${v})">Study today's verse →</button>`;
+}
+const QUOTES=[
+  ["Set your heart on the work, not its reward.","Chapter 2.47"],
+  ["The soul is neither born, nor does it ever die.","Chapter 2.20"],
+  ["Lift yourself by your own self; be your own friend.","Chapter 6.5"],
+  ["A gift offered without expectation purifies the giver.","Chapter 17.20"],
+  ["The steady mind, untroubled in sorrow or joy, is free.","Chapter 2.56"],
+  ["Better your own duty done imperfectly than another's done well.","Chapter 18.47"],
+  ["Wherever there is excellence, know it as a spark of the divine.","Chapter 10.41"],
+];
+function genQuote(){const q=QUOTES[Math.floor(Math.random()*QUOTES.length)];
+  document.getElementById('quoteBox').innerHTML=`<p style="font-family:var(--serif);font-style:italic;font-size:1.2rem">“${q[0]}”</p><p class="gold" style="margin-top:10px;font-size:.85rem">${q[1]}</p>`;}
+
+/* ============== KNOWLEDGE GRAPH ============== */
+function renderGraph(){
+  const nodes=[["Karma",250,60,"#FBBF24"],["Duty",100,150,"#7C3AED"],["Discipline",400,150,"#5b7cfa"],
+    ["Detachment",80,280,"#FBBF24"],["Success",420,280,"#7C3AED"],["Peace",250,330,"#5b7cfa"],["Meditation",250,200,"#FBBF24"]];
+  const edges=[[0,1],[0,2],[1,6],[2,6],[2,4],[1,3],[3,5],[4,5],[6,5],[6,3]];
+  const W=500,H=380;
+  let svg=`<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet">`;
+  edges.forEach(([a,b])=>svg+=`<line x1="${nodes[a][1]}" y1="${nodes[a][2]}" x2="${nodes[b][1]}" y2="${nodes[b][2]}" stroke="rgba(255,255,255,.12)" stroke-width="1.5"/>`);
+  nodes.forEach((nd,i)=>{svg+=`<circle cx="${nd[1]}" cy="${nd[2]}" r="34" fill="${nd[3]}22" stroke="${nd[3]}" stroke-width="1.6"/>
+    <text class="node" x="${nd[1]}" y="${nd[2]+4}" text-anchor="middle">${nd[0]}</text>`;});
+  svg+=`</svg>`;
+  document.getElementById('kg').innerHTML=svg;
+}
+
+/* ============== PROGRESS + BADGES ============== */
+const BADGES=[
+  ["🧭","Chapter Explorer","Open your first chapter",()=>S.curChap!=null],
+  ["⚔️","Karma Yogi","Read 3 verses",()=>S.read.size>=3],
+  ["🔍","Wisdom Seeker","Bookmark a verse",()=>S.bookmarks.size>=1],
+  ["📚","Gita Scholar","Read 5 verses",()=>S.read.size>=5],
+  ["✨","Enlightened Learner","Write a note",()=>Object.values(S.notes).some(v=>v&&v.trim())],
+];
+function renderProgress(){
+  const pct=Math.round(S.read.size/700*100);
+  document.getElementById('progressRing').innerHTML=`
+    <div style="text-align:center"><div class="serif" style="font-size:2.4rem;color:var(--gold)">${S.read.size}</div>
+      <small style="color:var(--muted)">/ 700 verses</small></div>
+    <div class="bar"><i style="width:${Math.max(pct,1)}%"></i></div>
+    <div style="text-align:center"><div class="serif" style="font-size:1.6rem;color:var(--gold)">${S.bookmarks.size}</div>
+      <small style="color:var(--muted)">saved</small></div>`;
+  document.getElementById('badgeGrid').innerHTML=BADGES.map(([e,t,d,fn])=>{
+    const got=fn();return `<div class="badge glass ${got?'':'locked'}"><span class="em">${e}</span><h4>${t}</h4><small>${got?'Unlocked':d}</small></div>`;}).join('');
+  const bm=[...S.bookmarks];
+  document.getElementById('bookmarkList').innerHTML = bm.length
+    ? bm.map(k=>{const[n,v]=k.split('.');const sh=SHLOKAS[k];
+        return `<div class="result glass" onclick="openShloka(${n},${v})"><div class="rid">Verse ${k}</div><p>${sh?sh.translation.slice(0,100)+'…':''}</p></div>`;}).join('')
+    : `<p style="color:var(--muted)">No bookmarks yet. Tap ☆ Save on any verse.</p>`;
+}
+
+/* ============== AI GURU (rule-based companion) ============== */
+function toggleGuru(){const m=document.getElementById('guruModal');m.classList.toggle('open');
+  if(m.classList.contains('open')&&!document.getElementById('guruChat').children.length){
+    guruSay('a',"Namaste 🙏 I'm your Gita Guru. Ask me about any verse or chapter, or just tell me what you're going through — and I'll explain it in simple, easy words. Pick a voice up top and try a question below.");
+    renderChips();}}
+function setGuruMode(btn,m){S.guruMode=m;document.querySelectorAll('#guruModes button').forEach(b=>b.classList.toggle('on',b===btn));}
+function renderChips(){document.getElementById('guruChips').innerHTML=
+  ["What is karma yoga?","Explain verse 2.47","How do I deal with anxiety?","What are the gunas?","Summarise Chapter 1"]
+  .map(c=>`<button onclick="document.getElementById('guruInput').value='${c}';sendGuru()">${c}</button>`).join('');}
+function guruSay(who,text){
+  const chat=document.getElementById('guruChat');
+  const d=document.createElement('div');d.className='msg '+who;
+  d.innerHTML=who==='a'?`<div class="who">Gita Guru</div>${text}`:text;
+  chat.appendChild(d);chat.scrollTop=chat.scrollHeight;
+}
+function askGuruAbout(key){document.getElementById('guruModal').classList.add('open');
+  document.getElementById('guruInput').value='Explain verse '+key;sendGuru();}
+function sendGuru(){
+  const inp=document.getElementById('guruInput');const q=inp.value.trim();if(!q)return;
+  guruSay('u',q);inp.value='';
+  setTimeout(()=>guruSay('a',guruAnswer(q)),350);
+}
+function guruAnswer(q){
+  const ql=q.toLowerCase();
+  const tone={teacher:s=>s,
+    child:s=>"Think of it like a little story: "+s+" 🌟 Did that make sense?",
+    student:s=>s+" 📝 Try this: link it to one real thing in your life this week.",
+    professional:s=>s+" At work, the simple takeaway is: focus on doing the work well, and don't stress so much about the result."}[S.guruMode];
+  // verse lookup
+  const vm=ql.match(/(\d{1,2})[.\s:]+(\d{1,2})/);
+  if(vm){const key=vm[1]+'.'+vm[2];const sh=SHLOKAS[key];
+    if(sh)return tone(`<b>Verse ${key}:</b> ${sh.translation} <br><br>${sh.explanation}`);
+    return tone(`Verse ${key} is part of "${CHAPTERS[+vm[1]-1]?.english||'this chapter'}". Right now the full simple notes are written for 2.47, 2.20, 6.5, 1.1 and 12.13 — open one of those to see how it all looks.`);}
+  if(ql.includes('karma yoga')||ql.includes('karma'))return tone("Karma yoga just means: do your work with your whole heart, but don't get stuck worrying about what you'll get from it. Chapter 3 is all about this. The key line is 2.47.");
+  if(ql.includes('guna'))return tone("There are three forces inside all of us (Chapter 14): calm and goodness (sattva), restlessness and wanting (rajas), and laziness and dullness (tamas). Being wise means noticing which one is running you right now, and rising above all three.");
+  if(ql.includes('anx')||ql.includes('stress')||ql.includes('worry')||ql.includes('fear'))return tone("For worry and stress, the Gita's answer is verse 2.47: put your energy into the part you control (your effort) and let go of the part you don't (the result). Most worry comes from gripping the result too hard. Verse 2.20 also helps — it says the real you can't be broken by any setback.");
+  if(ql.includes('chapter 1')||ql.includes('summarise chapter 1')||ql.includes('summarize chapter 1'))return tone(CHAPTERS[0].summary);
+  const cm=ql.match(/chapter (\d{1,2})/);
+  if(cm&&CHAPTERS[+cm[1]-1])return tone(CHAPTERS[+cm[1]-1].summary);
+  if(ql.includes('meditat'))return tone("Chapter 6 is about meditation: sit steady, don't eat or sleep too much or too little, and gently bring your wandering mind back when it runs off. Verse 6.5 reminds us we can be our own best friend or our own worst enemy.");
+  if(ql.includes('detach'))return tone("Letting go in the Gita doesn't mean you stop caring. It means you care fully and try hard — but you don't let your peace depend on the result. You give your best, then you let go.");
+  if(ql.includes('hello')||ql.includes('namaste')||ql.includes('hi '))return tone("Namaste 🙏 Ask me about a verse (like 2.47), any chapter, or just a feeling you're dealing with.");
+  return tone(`Good question. In simple words, the Gita says: do the right thing with a calm heart, and don't stress over the result. Try asking me about a verse (like "2.47"), a chapter, or a feeling like worry, anger, or motivation — and I'll explain it simply.`);
+}
+
+/* ============== INIT ============== */
+renderChapters();renderFilters();renderDaily();genQuote();renderGraph();renderProgress();runSearch();
+// refresh progress when navigating there
+document.querySelector('[data-view="progress"]').addEventListener('click',renderProgress);
+</script>
+</body>
+</html>
